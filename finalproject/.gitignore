@@ -1,0 +1,46 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.pyd
+
+# Django
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+*.sqlite3
+
+# Static & media (generated at runtime)
+static/
+staticfiles/
+media/
+
+# Environments
+.env
+.env.*
+env/
+ENV/
+venv/
+.venv/
+.python-version
+
+# Testing & coverage
+.pytest_cache/
+.tox/
+.coverage*
+htmlcov/
+
+# IDE/editor
+.vscode/
+.idea/
+*.code-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+
