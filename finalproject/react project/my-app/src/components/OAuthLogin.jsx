@@ -1,26 +1,30 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { FaGithub } from "react-icons/fa";
+import { FaGoogle } from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa";
+import { API_BASE_URL } from '../config/api';
 
 const OAuthLogin = ({ onOAuthLogin }) => {
   const [providers, setProviders] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Enhanced provider icons and colors
+
   const providerConfig = {
     github: {
-      icon: '🐙', // GitHub Octocat
+      icon: <FaGithub />,
       name: 'GitHub',
       gradient: 'linear-gradient(135deg, #24292e, #586069)',
       hoverGradient: 'linear-gradient(135deg, #586069, #24292e)'
     },
     google: {
-      icon: '🔍',
+      icon: <FaGoogle />,
       name: 'Google',
-      gradient: 'linear-gradient(135deg, #4285f4, #34a853)',
-      hoverGradient: 'linear-gradient(135deg, #34a853, #4285f4)'
+      gradient: 'linear-gradient(135deg, #f03800ff, #0e7fffff, #ffe23fff)',
+      hoverGradient: 'linear-gradient(135deg, #f03800ff, #0e7fffff, #ffe23fff)',
     },
     facebook: {
-      icon: '📘',
+      icon: <FaFacebook />,
       name: 'Facebook', 
       gradient: 'linear-gradient(135deg, #1877f2, #42a5f5)',
       hoverGradient: 'linear-gradient(135deg, #42a5f5, #1877f2)'
@@ -33,10 +37,10 @@ const OAuthLogin = ({ onOAuthLogin }) => {
 
   const fetchProviders = async () => {
     try {
-      const response = await axios.get('http://127.0.0.1:8080/api/auth/providers/');
+      const response = await axios.get(`${API_BASE_URL}/api/auth/providers/`);
       setProviders(response.data.providers);
     } catch (error) {
-      // Silently handle error - providers will be empty array
+     
     } finally {
       setLoading(false);
     }
@@ -45,7 +49,7 @@ const OAuthLogin = ({ onOAuthLogin }) => {
   const handleOAuthLogin = (provider) => {
     // For OAuth, we need to redirect to Django's OAuth URLs
     // This will handle the OAuth flow and redirect back
-    const loginUrl = `http://127.0.0.1:8080${provider.login_url}`;
+    const loginUrl = `${API_BASE_URL}${provider.login_url}`;
     
     // Store current React app URL to redirect back after OAuth
     localStorage.setItem('oauth_redirect_url', window.location.href);

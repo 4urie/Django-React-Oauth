@@ -1,9 +1,10 @@
 import './Profile.css';
+import { API_BASE_URL } from '../config/api';
 
 const Profile = ({ user, onAuthChange }) => {
   const handleLogout = async () => {
     try {
-      const response = await fetch('http://127.0.0.1:8080/api/auth/logout/', {
+      const response = await fetch(`${API_BASE_URL}/api/auth/logout/`, {
         method: 'POST',
         credentials: 'include',
         headers: {
@@ -59,7 +60,7 @@ const Profile = ({ user, onAuthChange }) => {
 
         <div className="profile-content">
           <div className="profile-section">
-            <h3>🎯 Account Information</h3>
+            <h3> Account Information</h3>
             <div className="info-grid">
               <div className="info-item">
                 <label>Username</label>
@@ -81,7 +82,7 @@ const Profile = ({ user, onAuthChange }) => {
           </div>
 
           <div className="profile-section">
-            <h3>⚡ Usage Statistics</h3>
+            <h3> Usage Statistics</h3>
             <div className="stats-grid">
               <div className="stat-card">
                 <div className="stat-icon">😂</div>
@@ -108,7 +109,7 @@ const Profile = ({ user, onAuthChange }) => {
           </div>
 
           <div className="profile-section">
-            <h3>🔧 Account Actions</h3>
+            <h3> Account Actions</h3>
             <div className="actions-grid">
               <button className="action-button secondary">
                 <span>✏️</span>

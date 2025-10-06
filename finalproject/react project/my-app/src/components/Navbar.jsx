@@ -1,12 +1,17 @@
 import { useState } from 'react';
 import './Navbar.css';
-
+import { MdDashboardCustomize } from "react-icons/md";
+import { FaGrinSquintTears } from "react-icons/fa";
+import { FaLock } from "react-icons/fa";
+import { CgProfile } from "react-icons/cg";
+import { SiDjango } from "react-icons/si";
+import { FaReact } from "react-icons/fa6";
 const Navbar = ({ user, onAuthChange, currentPage, onPageChange }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleLogout = async () => {
     try {
-      const response = await fetch('http://127.0.0.1:8080/api/auth/logout/', {
+      const response = await fetch(`${API_BASE_URL}/api/auth/logout/`, {
         method: 'POST',
         credentials: 'include',
         headers: {
@@ -31,18 +36,17 @@ const Navbar = ({ user, onAuthChange, currentPage, onPageChange }) => {
   };
 
   const menuItems = [
-    { id: 'dashboard', label: 'Dashboard', icon: '🏠' },
-    { id: 'jokes', label: 'Jokes API', icon: '😂' },
-    { id: 'caesar', label: 'Caesar Cipher', icon: '🔐' },
-    { id: 'profile', label: 'Profile', icon: '👤', authRequired: true }
+    { id: 'dashboard', label: 'Dashboard', icon: <MdDashboardCustomize /> },
+    { id: 'jokes', label: 'Jokes API', icon: <FaGrinSquintTears /> },
+    { id: 'caesar', label: 'Caesar Cipher', icon: <FaLock /> },
+    { id: 'profile', label: 'Profile', icon: <CgProfile />, authRequired: true }
   ];
 
   return (
     <nav className="navbar">
       <div className="navbar-container">
         <div className="navbar-brand">
-          <span className="brand-icon">🚀</span>
-          <span className="brand-text">Django + React</span>
+          <span className="brand-text"> <SiDjango /> + <FaReact /> </span>
         </div>
 
         <div className={`navbar-menu ${isMenuOpen ? 'is-active' : ''}`}>
@@ -70,7 +74,7 @@ const Navbar = ({ user, onAuthChange, currentPage, onPageChange }) => {
             {user ? (
               <div className="user-menu">
                 <div className="user-info">
-                  <span className="user-greeting">👋 {user.username}</span>
+                  <span className="user-greeting"> {user.username}</span>
                 </div>
                 <button className="logout-btn" onClick={handleLogout}>
                   <span>🚪</span> Logout

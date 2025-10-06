@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
+import { API_BASE_URL } from '../config/api';
 
 const JokeSection = () => {
   const [joke, setJoke] = useState('');
@@ -10,7 +11,7 @@ const JokeSection = () => {
     setLoading(true);
     setError('');
     try {
-      const response = await axios.get('http://127.0.0.1:8080/api/joke/');
+      const response = await axios.get(`${API_BASE_URL}/api/joke/`);
       setJoke(response.data.joke);
     } catch (err) {
       setError(`Failed to fetch joke: ${err.response?.data?.error || err.message}`);

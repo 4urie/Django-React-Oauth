@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import OAuthLogin from './OAuthLogin';
+import { API_BASE_URL } from '../config/api';
 
 const SignupForm = ({ onSignupSuccess }) => {
   const [formData, setFormData] = useState({
@@ -24,7 +25,7 @@ const SignupForm = ({ onSignupSuccess }) => {
     }
 
     try {
-      const response = await axios.post('http://127.0.0.1:8080/api/auth/signup/', {
+            const response = await axios.post(`${API_BASE_URL}/api/auth/signup/`, {
         username: formData.username,
         email: formData.email,
         password1: formData.password1,

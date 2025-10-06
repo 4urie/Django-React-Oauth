@@ -253,7 +253,7 @@
 
 .quick-actions h2 {
   text-align: center;
-  color: #2c3e50;
+  color: #d8d8d8;
   margin-bottom: 2rem;
   font-size: 2rem;
 }
@@ -325,7 +325,7 @@
 }
 
 .api-info {
-  background: #f8f9fa;
+  background: #202020ff;
   border-radius: 15px;
   padding: 2rem;
   margin-top: 2rem;
@@ -333,7 +333,7 @@
 
 .api-info h2 {
   text-align: center;
-  color: #2c3e50;
+  color: rgb(255, 255, 255);
   margin-bottom: 2rem;
   font-size: 2rem;
 }
@@ -345,7 +345,7 @@
 }
 
 .info-card {
-  background: white;
+  background: rgb(44, 44, 44);
   padding: 1.5rem;
   border-radius: 10px;
   text-align: center;
@@ -353,17 +353,17 @@
 }
 
 .info-card h4 {
-  color: #2c3e50;
+  color: #ffffff;
   margin-bottom: 1rem;
   font-size: 1.1rem;
 }
 
 .info-card code {
-  background: #e9ecef;
+    
   padding: 0.5rem 1rem;
   border-radius: 5px;
   font-family: 'Monaco', 'Consolas', monospace;
-  color: #495057;
+  color: #ffffff;
   display: inline-block;
 }
 
@@ -390,10 +390,16 @@
 }
 
 .features-grid h2,
-.quick-actions h2,
+.quick-actions h2 {
+  text-align: center;
+  color: #ffffff59;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
 .api-info h2 {
   text-align: center;
-  color: #2c3e50;
+  color: #ffffff;
   margin-bottom: 2rem;
   font-size: 2rem;
 }

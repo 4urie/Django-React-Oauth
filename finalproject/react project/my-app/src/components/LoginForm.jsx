@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import axios from 'axios';
+import { API_BASE_URL } from '../config/api';
 import OAuthLogin from './OAuthLogin';
+
 
 const LoginForm = ({ onLoginSuccess }) => {
   const [formData, setFormData] = useState({
@@ -16,7 +18,7 @@ const LoginForm = ({ onLoginSuccess }) => {
     setError('');
 
     try {
-      const response = await axios.post('http://127.0.0.1:8080/api/auth/login/', {
+      const response = await axios.post(`${API_BASE_URL}/api/auth/login/`, {
         username: formData.username,
         password: formData.password
       });

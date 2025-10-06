@@ -76,7 +76,7 @@
 
 .section p {
   margin: 0 0 1.5rem 0;
-  color: #666;
+  color: #ffffff;
   line-height: 1.5;
 }
 
@@ -149,19 +149,19 @@
 .result {
   margin-top: 1.5rem;
   padding: 1rem;
-  background: #f7fafc;
+  background: #2c2c2c;
   border-radius: 8px;
   border-left: 4px solid #667eea;
 }
 
 .result h3 {
   margin: 0 0 0.5rem 0;
-  color: #2d3748;
+  color: #ffffff;
 }
 
 .result p {
   margin: 0.5rem 0;
-  color: #4a5568;
+  color: #ffffff;
   word-break: break-word;
 }
 

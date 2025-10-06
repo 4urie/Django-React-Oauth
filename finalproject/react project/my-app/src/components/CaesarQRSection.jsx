@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
+import { API_BASE_URL } from '../config/api';
 
 const CaesarQRSection = () => {
   const [text, setText] = useState('');
@@ -19,7 +20,7 @@ const CaesarQRSection = () => {
     setLoading(true);
     setError('');
     try {
-      const response = await axios.post('http://127.0.0.1:8080/api/caesar-qr/', {
+      const response = await axios.post(`${API_BASE_URL}/api/caesar-qr/`, {
         text: text,
         shift: parseInt(shift)
       });

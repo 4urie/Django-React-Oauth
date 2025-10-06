@@ -36,7 +36,7 @@ const OAuthCallback = ({ onAuthSuccess }) => {
       }
 
       // Fallback: Check if user is authenticated via regular API call
-      const response = await axios.get('http://127.0.0.1:8080/api/auth/user/', {
+      const response = await axios.get(`${API_BASE_URL}/api/auth/user/`, {
         withCredentials: true
       });
       

@@ -84,8 +84,11 @@ MIDDLEWARE = [
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",  # React dev server
     "http://127.0.0.1:5173",
+    "http://localhost:5174",  # React dev server (alternative port)
+    "http://127.0.0.1:5174",
     "http://localhost:3000",  # Alternative React port
     "http://127.0.0.1:3000",
+    "https://pseudophilanthropic-vanda-hatlike.ngrok-free.dev",  # ngrok domain
 ]
 
 CORS_ALLOW_CREDENTIALS = True
@@ -95,6 +98,9 @@ CSRF_TRUSTED_ORIGINS = [
     'http://localhost:8080',
     'http://localhost:5173',
     'http://127.0.0.1:5173',
+    'http://localhost:5174',
+    'http://127.0.0.1:5174',
+    'https://pseudophilanthropic-vanda-hatlike.ngrok-free.dev',
 ]
 
 ROOT_URLCONF = 'mysite.urls'

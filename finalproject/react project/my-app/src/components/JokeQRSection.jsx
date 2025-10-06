@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
+import { API_BASE_URL } from '../config/api';
 
 const JokeQRSection = () => {
   const [joke, setJoke] = useState('');
@@ -11,7 +12,7 @@ const JokeQRSection = () => {
     setLoading(true);
     setError('');
     try {
-      const response = await axios.get('http://127.0.0.1:8080/api/joke-qr/');
+      const response = await axios.get(`${API_BASE_URL}/api/joke-qr/`);
       setJoke(response.data.joke);
       setQrImage(response.data.qr_image);
     } catch (err) {

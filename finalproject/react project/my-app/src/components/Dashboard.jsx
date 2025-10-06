@@ -1,5 +1,9 @@
 import { useState, useEffect } from 'react';
 import './Dashboard.css';
+import { FaGrinSquintTears } from "react-icons/fa";
+import { IoQrCode } from "react-icons/io5";
+import { IoDocumentLock } from "react-icons/io5";
+import { API_BASE_URL } from '../config/api';
 
 const Dashboard = ({ user }) => {
   const [stats, setStats] = useState({
@@ -13,32 +17,32 @@ const Dashboard = ({ user }) => {
       id: 'jokes',
       title: 'Random Jokes API',
       description: 'Get random programming jokes from our API',
-      icon: '😂',
-      color: '#FF6B6B',
+      icon: <FaGrinSquintTears />,
+      color: '#202020ff',
       stats: 'Unlimited jokes available'
     },
     {
       id: 'jokes-qr',
       title: 'Joke QR Codes',
       description: 'Generate QR codes containing random jokes',
-      icon: '📱',
-      color: '#4ECDC4',
+      icon: <IoQrCode />,
+      color: '#202020ff',
       stats: 'QR codes with embedded jokes'
     },
     {
       id: 'caesar',
       title: 'Caesar Cipher',
       description: 'Encrypt and decrypt text using Caesar cipher',
-      icon: '🔐',
-      color: '#45B7D1',
+      icon: <IoDocumentLock />,
+      color: '#202020ff',
       stats: 'Classical encryption method'
     },
     {
       id: 'caesar-qr',
       title: 'Cipher QR Codes',
       description: 'Generate QR codes with encrypted messages',
-      icon: '🔏',
-      color: '#96CEB4',
+      icon: <IoDocumentLock />,
+      color: '#202020ff',
       stats: 'Secure QR code generation'
     }
   ];
@@ -69,7 +73,7 @@ const Dashboard = ({ user }) => {
       <div className="dashboard-header">
         <div className="welcome-section">
           <h1>
-            {user ? `Welcome back, ${user.username}! 👋` : 'Welcome to Django + React API! 🚀'}
+            {user ? `Welcome back, ${user.username}! ` : 'Welcome to Django + React API! '}
           </h1>
           <p>
             {user 
@@ -95,7 +99,7 @@ const Dashboard = ({ user }) => {
       </div>
 
       <div className="features-grid">
-        <h2>🎯 Available Features</h2>
+        <h2> Available Features</h2>
         <div className="features-container">
           {features.map(feature => (
             <div key={feature.id} className="feature-card" style={{'--accent-color': feature.color}}>
@@ -114,30 +118,12 @@ const Dashboard = ({ user }) => {
         </div>
       </div>
 
-      {user && (
-        <div className="quick-actions">
-          <h2>⚡ Quick Actions</h2>
-          <div className="actions-container">
-            {quickActions.map((action, index) => (
-              <div key={index} className="action-card">
-                <div className="action-icon">{action.icon}</div>
-                <div className="action-content">
-                  <h4>{action.title}</h4>
-                  <p>{action.description}</p>
-                </div>
-                <button className="action-btn">Try Now</button>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-
-      <div className="api-info">
-        <h2>🔧 API Information</h2>
+      <div className="api-info bg-black p-4 rounded-lg">
+        <h2> API Information</h2>
         <div className="info-grid">
           <div className="info-card">
             <h4>🌐 Base URL</h4>
-            <code>http://127.0.0.1:8080/api/</code>
+            <code>{API_BASE_URL}/api/</code>
           </div>
           <div className="info-card">
             <h4>🔐 Authentication</h4>
