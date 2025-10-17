@@ -6,8 +6,23 @@ import { FaLock } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
 import { SiDjango } from "react-icons/si";
 import { FaReact } from "react-icons/fa6";
+import { API_BASE_URL } from '../config/api.js';
 const Navbar = ({ user, onAuthChange, currentPage, onPageChange }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showLogoutModal, setShowLogoutModal] = useState(false);
+
+  const handleLogoutClick = () => {
+    setShowLogoutModal(true);
+  };
+
+  const confirmLogout = async () => {
+    setShowLogoutModal(false);
+    await handleLogout();
+  };
+
+  const cancelLogout = () => {
+    setShowLogoutModal(false);
+  };
 
   const handleLogout = async () => {
     try {
@@ -76,7 +91,7 @@ const Navbar = ({ user, onAuthChange, currentPage, onPageChange }) => {
                 <div className="user-info">
                   <span className="user-greeting"> {user.username}</span>
                 </div>
-                <button className="logout-btn" onClick={handleLogout}>
+                <button className="logout-btn" onClick={handleLogoutClick}>
                   <span>🚪</span> Logout
                 </button>
               </div>
@@ -100,6 +115,32 @@ const Navbar = ({ user, onAuthChange, currentPage, onPageChange }) => {
           <span></span>
         </button>
       </div>
+
+      {/* Logout Confirmation Modal */}
+      {showLogoutModal && (
+        <div className="modal-overlay" onClick={cancelLogout}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header">
+              <h3>Confirm Logout</h3>
+              <button className="modal-close" onClick={cancelLogout}>
+                ×
+              </button>
+            </div>
+            <div className="modal-body">
+              <p>Are you sure you want to log out?</p>
+              <p>You will need to log in again to access your account.</p>
+            </div>
+            <div className="modal-footer">
+              <button onClick={cancelLogout} className="cancel-btn">
+                Cancel
+              </button>
+              <button onClick={confirmLogout} className="confirm-btn">
+                Yes, Logout
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </nav>
   );
 };
